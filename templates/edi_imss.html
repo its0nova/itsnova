@@ -1,0 +1,92 @@
+{% extends "layout.html" %} {% block content %}
+
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9en;
+        min-width: 600px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+    }
+    
+    .content-table thead tr {
+        background-color: #333769;
+        color: #ffff;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddd;
+    }
+    
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #333769;
+    }
+    
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #333769;
+    }
+  </style>
+  
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<body style="background-color:#ffff;">
+ <h1>Editar calculo IMSS</h1>
+    <form action="/modi_imss/{{imss.0}}" method="post">
+    
+    <div class="form-row">
+        &nbsp;&nbsp;&nbsp;
+        <div class="form-group-inline col-md-12">
+            
+            <label for="descripcion" class="form-inline-row col-md-1">Descripción</label>
+            <input type="text" value="{{ imss.1 }}" class="form-control-inline  col-md-8" class="form-row col-md-12" name="descripcion" id="descripcion" placeholder="" required> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+        </div>&nbsp;&nbsp;
+
+        <div class="form-inline-row col-md-12">
+            
+            <label for="porcentaje" class="form-row-inline col-md-1">Porcentaje</label>
+            <input type="text" class="form-control-inline col-md-2" name="porcentaje" id="porcentaje" value="{{ imss.2 }}"placeholder="" width="10">
+        </div>
+           
+
+            
+        <div class="form-group-inline col-md-12">
+            <label for="base" class="form-inline-row col-md-1">Base</label>
+            <select required name="base" id="base" class="form-control" value="{{ imss.3 }}" style="width: 200px;">
+            <option value="" selected>Choose...</option>
+                {% for obrera in obreras %}
+
+                    <option value="{{ obrera.0 }}">{{ obrera.1 }}</option>
+               
+                {%   endfor %}            
+              </select>&nbsp;&nbsp;
+        </div> 
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar &nbsp;<i class="fas fa-paper-plane"></i></button>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+<a class="btn btn-primary" href="/imss" align="right">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+</form>
+
+</body>
+{% endblock %}

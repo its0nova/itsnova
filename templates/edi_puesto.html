@@ -1,0 +1,392 @@
+{% extends "layout.html" %} {% block content %}
+
+<style>
+  .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9en;
+      min-width: 600px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+      background-color: #333769;
+      color: #ffff;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+      padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+      border-bottom: 1px solid #dddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #333769;
+  }
+  
+  .content-table tbody tr.active-row {
+      font-weight: bold;
+      color: #333769;
+  }
+</style>
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<form action="/modifica_puesto/{{puestos.0[0]}}" method="post">
+    <h2>Editar Puesto</h2>
+    <body style="background-color:#ffff;">
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <div class="form-row">
+        <label for="nompuesto">Nombre del puesto</label>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="nompuesto" id="nompuesto" value="{{puestos.0[1]}}" required>
+        </div>
+    </div>    
+    <div class="form-row">
+        <label for="descripcion">Descripción del puesto</label>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{puestos.0[2]}}" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="salario">Salario Mensual</label>
+            <input type="text" class="form-control" name="salario" id="salario" value="{{puestos.0[3]}}" placeholder="000000.00" pattern="[0-9.]+" required>
+        </div>
+        <div class="form-group col-md-8">
+            <label for="beneficios">Beneficios</label>
+            <input type="text" class="form-control" name="beneficios" id="beneficios" value="{{puestos.0[4]}}" required>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="bonos">Bonos</label>
+            <input type="text" class="form-control" name="bonos" id="bonos" value="{{puestos.0[5]}}" placeholder="000000.00" pattern="[0-9.]+" required>
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" name="sall" id="sall" placeholder="000000.00" value="{{puestos.0[7]}}"  required> 
+      </div>
+    </div>
+    <div class="form-row">
+        <label>Requiere autorización</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        {% if puestos.0[6]==0%}
+        <div class="form-check rorm-check-inline">
+            <input class="form-check-input" type="radio" name="autorizar" id="autorizar1" value="0" checked >
+            <label class="form-check-label" for="autorizar1">Si</label>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="form-check rorm-check-inline">
+            <input class="form-check-input" type="radio" name="autorizar" id="autorizar2" value="1">
+            <label class="form-check-label" for="autorizar2">No</label>
+        </div>
+        {% endif %}
+        {% if puestos.0[6]==1%}
+        <div class="form-check rorm-check-inline">
+            <input class="form-check-input" type="radio" name="autorizar" id="autorizar1" value="0" >
+            <label class="form-check-label" for="autorizar1">Si</label>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="form-check rorm-check-inline">
+            <input class="form-check-input" type="radio" name="autorizar" id="autorizar2" value="1" checked>
+            <label class="form-check-label" for="autorizar2">No</label>
+        </div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Cambios &nbsp;<i class="fas fa-paper-plane"></i></button>
+</form>
+<!-- -----------------------------------------------------------------  -->
+<br>
+<br>
+<center><h3>Habilidades asociadas</h3></center>
+<div class="panel panel-primary">
+    <div class="panel-heading" >
+        <form class="form-inline" action="/agrega_hab_pto/{{puestos.0[0]}}" method="post">
+            <div class="form-row">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="hidden" name="pto" id="pto" value="{{puestos.0[0]}}">
+
+                <label for="habil">Habilidad</label>&nbsp;&nbsp;&nbsp;
+                <select required name="habil" id="habil" class="form-control">
+                             <option value="" selected>Choose...</option>
+                                 {%
+                                     for hab in habs
+                                 %}
+                                     <option value="{{ hab.0 }}">{{ hab.1 }}</option>
+                                {%   endfor %}
+                             </select>&nbsp;&nbsp;&nbsp;
+                             <label for="expe">Experiencia</label>&nbsp;&nbsp;&nbsp;
+                             <input type="text" class="form-control" name="expe" id="expe" placeholder="tiempo de experiencia" required>&nbsp;&nbsp;&nbsp;
+                         </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Agrega habilidad</button>
+                    </form>
+                  </div>
+                  <br>
+                  <center>
+                    <table class="content-table">
+                  </center>
+                  <thead>
+                    <tr>
+                      <th>Habilidad</th>
+                      <th>Experiencia</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for puesto in pue_habs %}
+                    <tr>
+                      <td>
+                        {{ puesto.2 }}
+                      </td>
+                      <td>
+                        {{ puesto.5 }}
+                      </td>
+                      <td  bgcolor="#FFF5757" width="60">
+                        <center><a href="/bo_hab_pto/{{puesto.0}}/{{puesto.4}}" style="color:#FFFFFF; text-decoration:none;">Borrar &nbsp;<i class="far fa-edit"></i></a></center>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                  </table>
+<!-- -----------------------------------------------------------------  -->
+            <br>
+            <center><h3>Requerimientos de Idioma</h3></center>
+             <div class="panel panel-primary">
+                  <div class="panel-heading" >
+                    <form class="form-inline" action="/agrega_idio_pto/{{puestos.0[0]}}" method="post">
+                        <div class="form-row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="hidden" name="ptoi" id="ptoi" value="{{puestos.0[0]}}" >
+                            <label for="idio">Idioma</label> &nbsp;&nbsp;&nbsp;
+                            <select required name="idio" id="idio" class="form-control">
+                                <option value="" selected>Choose...</option>
+                                {% for idioma in idiomas %}
+                                <option value="{{ idioma.0 }}">{{ idioma.1 }}</option>
+                                {%   endfor %}
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <label for="nive">Nivel</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control" name="nive" id="nive" placeholder="Nivel en el idioma" required>&nbsp;&nbsp;&nbsp;
+                        </div>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Agrega Idioma &nbsp;<i class="fas fa-plus"></i></button>
+                    </form>
+                  </div>
+                  <br>
+                  <center>
+                    <table class="content-table">
+                  </center>
+                  <thead>
+                    <tr>
+                      <th>Idioma</th>
+                      <th>Nivel</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for pue_idi in pue_idis %}
+                    <tr>
+                      <td>
+                        {{ pue_idi.2 }}
+                      </td>
+                      <td>
+                        {{ pue_idi.5 }}
+                      </td>
+                      <td  bgcolor="#FFF5757" width="60">
+                        <center><a href="/bo_idi_pto/{{ pue_idi.0 }}/{{ pue_idi.4 }}" style="color:#FFFFFF; text-decoration:none;">Borrar &nbsp;<i class="fas fa-trash-alt"></i></a></center>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                  </table>
+            <br><br>
+            <center>
+              <a class="btn btn-primary" href="/puesto" align="right">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+            </center>
+            <br><br>
+
+            <script>
+              document.getElementById("salario").addEventListener("keyup",function(e){
+              document.getElementById('sall').value= salarioALetras(this.value);
+              });
+               
+               
+              function Unidades(num){
+               
+                switch(num)
+                {
+                  case 1: return "UN";
+                  case 2: return "DOS";
+                  case 3: return "TRES";
+                  case 4: return "CUATRO";
+                  case 5: return "CINCO";
+                  case 6: return "SEIS";
+                  case 7: return "SIETE";
+                  case 8: return "OCHO";
+                  case 9: return "NUEVE";
+                }
+               
+                return "";
+              }
+               
+              function Decenas(num){
+               
+                decena = Math.floor(num/10);
+                unidad = num - (decena * 10);
+               
+                switch(decena)
+                {
+                  case 1:
+                    switch(unidad)
+                    {
+                      case 0: return "DIEZ";
+                      case 1: return "ONCE";
+                      case 2: return "DOCE";
+                      case 3: return "TRECE";
+                      case 4: return "CATORCE";
+                      case 5: return "QUINCE";
+                      default: return "DIECI" + Unidades(unidad);
+                    }
+                  case 2:
+                    switch(unidad)
+                    {
+                      case 0: return "VEINTE";
+                      default: return "VEINTI" + Unidades(unidad);
+                    }
+                  case 3: return DecenasY("TREINTA", unidad);
+                  case 4: return DecenasY("CUARENTA", unidad);
+                  case 5: return DecenasY("CINCUENTA", unidad);
+                  case 6: return DecenasY("SESENTA", unidad);
+                  case 7: return DecenasY("SETENTA", unidad);
+                  case 8: return DecenasY("OCHENTA", unidad);
+                  case 9: return DecenasY("NOVENTA", unidad);
+                  case 0: return Unidades(unidad);
+                }
+              }//Unidades()
+               
+              function DecenasY(strSin, numUnidades){
+                if (numUnidades > 0)
+                  return strSin + " Y " + Unidades(numUnidades)
+               
+                return strSin;
+              }//DecenasY()
+               
+              function Centenas(num){
+               
+                centenas = Math.floor(num / 100);
+                decenas = num - (centenas * 100);
+               
+                switch(centenas)
+                {
+                  case 1:
+                    if (decenas > 0)
+                      return "CIENTO " + Decenas(decenas);
+                    return "CIEN";
+                  case 2: return "DOSCIENTOS " + Decenas(decenas);
+                  case 3: return "TRESCIENTOS " + Decenas(decenas);
+                  case 4: return "CUATROCIENTOS " + Decenas(decenas);
+                  case 5: return "QUINIENTOS " + Decenas(decenas);
+                  case 6: return "SEISCIENTOS " + Decenas(decenas);
+                  case 7: return "SETECIENTOS " + Decenas(decenas);
+                  case 8: return "OCHOCIENTOS " + Decenas(decenas);
+                  case 9: return "NOVECIENTOS " + Decenas(decenas);
+                }
+               
+                return Decenas(decenas);
+              }//Centenas()
+               
+              function Seccion(num, divisor, strSingular, strPlural){
+                cientos = Math.floor(num / divisor)
+                resto = num - (cientos * divisor)
+               
+                letras = "";
+               
+                if (cientos > 0)
+                  if (cientos > 1)
+                    letras = Centenas(cientos) + " " + strPlural;
+                  else
+                    letras = strSingular;
+               
+                if (resto > 0)
+                  letras += "";
+               
+                return letras;
+              }//Seccion()
+               
+              function Miles(num){
+                divisor = 1000;
+                cientos = Math.floor(num / divisor)
+                resto = num - (cientos * divisor)
+               
+                strMiles = Seccion(num, divisor, "MIL", "MIL");
+                strCentenas = Centenas(resto);
+               
+                if(strMiles == "")
+                  return strCentenas;
+               
+                return strMiles + " " + strCentenas;
+               
+                //return Seccion(num, divisor, "UN MIL", "MIL") + " " + Centenas(resto);
+              }//Miles()
+               
+              function Millones(num){
+                divisor = 1000000;
+                cientos = Math.floor(num / divisor)
+                resto = num - (cientos * divisor)
+               
+                strMillones = Seccion(num, divisor, "UN MILLON", "MILLONES");
+                strMiles = Miles(resto);
+               
+                if(strMillones == "")
+                  return strMiles;
+               
+                return strMillones + " " + strMiles;
+               
+                //return Seccion(num, divisor, "UN MILLON", "MILLONES") + " " + Miles(resto);
+              }//Millones()
+               
+              function salarioALetras(num,centavos){
+                var data = {
+                  salario: num,
+                  enteros: Math.floor(num),
+                  centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
+                  letrasCentavos: "",
+                };
+                if(centavos == undefined || centavos==false) {
+                  data.letrasMonedaPlural="PESOS";
+                  data.letrasMonedaSingular="PESO";
+                }else{
+                  data.letrasMonedaPlural="CENTAVOS";
+                  data.letrasMonedaSingular="CENTAVO";
+                }
+               
+                if (data.centavos > 0)
+                  data.letrasCentavos = "CON " + salarioALetras(data.centavos,true);
+               
+                if(data.enteros == 0)
+                  return "CERO " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+                if (data.enteros == 1)
+                  return Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
+                else
+                  return Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+              }//salarioALetras()
+              </script>
+  
+</body>
+{% endblock %}

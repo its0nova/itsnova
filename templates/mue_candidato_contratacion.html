@@ -1,0 +1,100 @@
+{% extends "layout.html" %} {% block content %}
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+
+<style>
+  .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9en;
+      min-width: 600px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+      background-color: #333769;
+      color: #ffff;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+      padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+      border-bottom: 1px solid #dddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #333769;
+  }
+  
+  .content-table tbody tr.active-row {
+      font-weight: bold;
+      color: #333769;
+  }
+</style>
+
+<body style="background-color: #ffff;">
+  <center>
+    <h3>Solicitudes Registradas</h3>
+  </center>
+  <center>
+    <table class="content-table">
+  </center>
+  <thead>
+    <tr>
+      <th>Id Solicitud</th>
+      <th>Fecha</th>
+      <th>Area</th>
+      <th>Puesto</th>
+      <th>Vacantes</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <tbody>
+        {% for solicitud in solicitudes %}
+        <tr>
+          <td>
+            {{ solicitud.0 }}
+          </td>
+          <td>
+            {{ solicitud.1 }}
+          </td>
+          <td>
+            {{ solicitud.3 }}
+          </td >
+          <td>
+            {{ solicitud.5 }}
+          </td >
+          <td>
+            {{ solicitud.6 }}
+          </td >
+          <td>
+            {{ solicitud.8 }}
+          </td >
+          <td bgcolor="#828282" width="60">
+            <center><a href="/sel_candidato_contratacion/{{solicitud.0}}" style="color:#FFFFFF; text-decoration:none;">Candidatos &nbsp;<i class="fas fa-user-friends"></i></a></center>
+          </td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </tr>
+  </tbody>
+  </table>
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+  <script type="text/javascript" src="/static/js/popper.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}

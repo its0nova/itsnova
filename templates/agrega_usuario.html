@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<body style="background-color:#D5DBDB;">
+<br>
+<form action="/agrega_usuario" method="post">
+<h2>Agregar Usuarios</h2>
+    <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="Usuario">Usuario</label>
+                <input type="text" class="form-control" name="Usuario" id="Usuario" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" name="Password" id="Password" placeholder=""  required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Nombre">Nombre</label>
+                <input type="text" class="form-control" name="Nombre" id="Nombre" required>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+
+            <label for="per">Actualizar Perfil</label>
+            <select name="per" id="per" class="form-control" required>
+
+                <option value="" selected>Choose...</option>
+                {%
+                for per in pers
+                %}
+                    <option value="{{ per.0 }}">{{ per.1 }}</option>{% endfor %}
+            </select>
+        </div>
+        <br>
+
+
+    <button type="submit" class="btn btn-primary" style="background:lightseagreen">Agregar &nbsp;<i class="fas fa-plus"></i></button>
+    <a class="btn btn-primary" href="/usuario" align="right" style="background:lightseagreen">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+    </div>
+</div>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+</form>
+</body>
+{% endblock %}

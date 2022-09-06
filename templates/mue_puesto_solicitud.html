@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body style="background-color:#D5DBDB;">
+<link rel="stylesheet" href="\static\css\tabla2.css">
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<center><h3>Solicitudes Registradas</h3></center>
+<div id="main-container">
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+       <tbody>
+        <tr>
+          <td color="FFFFFF" bgcolor="#465F5A" valign="top">
+            <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <thead>
+                <tr>
+                    <td color="white" bgcolor="006666"><font color="white">Id Solicitud</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Fecha</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Área</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Puesto</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Vacantes</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Estado</font></td>
+                    <td color="white" bgcolor="006666"><font color="white"></font></td>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <tbody>
+                {% for solicitud in solicitudes %}
+                  <tr>
+                    <td>
+                        {{ solicitud.0 }}
+                    </td>
+                    <td>
+                        {{ solicitud.1 }}
+                    </td>
+                    <td>
+                        {{ solicitud.3 }}
+                    </td >
+                    <td>
+                        {{ solicitud.5 }}
+                    </td >
+                    <td>
+                        {{ solicitud.6 }}
+                    </td >
+                    <td>
+                        {{ solicitud.8 }}
+                    </td >
+                    <td bgcolor="#9C9C9C" width="60">
+                        <center><a href="/sel_candidato_contratacion/{{solicitud.0}}" class="btn btn-success" style="background:lightseagreen">Candidatos &nbsp;<i class="fas fa-user-friends"></i></a></center>
+                    </td>
+                {% endfor %}
+              </tbody>
+                  </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+          <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    </table>
+</div>
+</body>
+
+
+{% endblock %}
+

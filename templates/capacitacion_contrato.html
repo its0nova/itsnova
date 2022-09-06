@@ -1,0 +1,100 @@
+{% extends "layout.html" %} {% block content %}
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+
+<style>
+	.content-table {
+		border-collapse: collapse;
+		margin: 25px 0;
+		font-size: 0.9en;
+		min-width: 600px;
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+		box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+	}
+	
+	.content-table thead tr {
+		background-color: #333769;
+		color: #ffff;
+		text-align: left;
+		font-weight: bold;
+	}
+	
+	.content-table th,
+	.content-table td {
+		padding: 12px 15px;
+	}
+	
+	.content-table tbody tr {
+		border-bottom: 1px solid #dddd;
+	}
+	
+	.content-table tbody tr:nth-of-type(even) {
+		background-color: #f3f3f3;
+	}
+	
+	.content-table tbody tr:last-of-type {
+		border-bottom: 2px solid #333769;
+	}
+	
+	.content-table tbody tr.active-row {
+		font-weight: bold;
+		color: #333769;
+	}
+</style>
+
+<body style="background-color:#ffff;">
+  <right><a href="/nvo_capacitacion/{{curp}}" class="btn btn-primary">Agregar capacitación &nbsp;<i class="fas fa-plus"></i></a>
+    <a href="/datoscontrato/{{curp}}" class="btn btn-primary">Ver datos contrato &nbsp;<i class="fas fa-eye"></i></a>
+    <a href="/capacitacion" class="btn btn-primary">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+  </right>
+  <center>
+    <h3>Capacitaciones de  <span id="nompr"></span></h3>
+  </center>
+  <input type="text" id="nombre" name="nombre" value="{{nombre.0}}" hidden>
+  <center>
+    <table class="content-table">
+  </center>
+  <thead>
+    <tr>
+      <th>Fecha de inicio</th>
+      <th>Fecha final</th>          
+      <th>Estatus</th>
+      <th>Curso</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dat in datos %}
+    <tr>
+      <td>
+        {{ dat.3 }}
+      </td >
+      <td>
+        {{ dat.4 }}
+      </td >
+      <td>
+        {{ dat.7 }}
+      </td>
+      <td>
+        {{ dat.2 }}
+      </td >
+        <td bgcolor="#9C9C9C" width="60">
+        <center><a href="/ed_capacitacion/{{curp}}/{{dat.1}}" style="color:#FFFFFF; text-decoration:none;">Editar &nbsp;<i class="far fa-edit"></i></a></center>
+      </td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+<script>
+  nom=document.getElementById('nombre').value;
+  let a =nom.substring(2, nom.length - 3);
+  document.getElementById("nompr").innerHTML=a
+</script>
+</body>
+
+
+{% endblock %}

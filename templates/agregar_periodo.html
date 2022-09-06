@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<head>
+	<title>Periodo de pago  </title>
+</head>
+
+<body style="background-color:#ffff;">
+
+          <form action="/periodo_agr" method="post">
+              <div class="form-row">
+                     <h2>Agregar Periodo de Pago</h2>
+              </div>
+        <div class="form-row">
+          <label for="descripcion">Descripción</label>
+          <input type="text" class="form-control" name="descripcion" id="descripcion" required>
+        </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Agregar &nbsp;<i class="fas fa-paper-plane"></i></button>
+
+<script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <a class="btn btn-primary" href="/periodo" align="right">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+  </form>
+</body>
+{% endblock %}

@@ -1,0 +1,434 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+  <script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+    <title>HOME-INT</title>
+</head>
+<body style="background-color:#D5DBDB;">
+<br>
+
+<h2>Contrato</h2>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+<form action="/agr_nvo_contrato/{{empleados.0[0]}}" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="curp">CURP</label>
+        <input minlength="18" maxlength="18" type="text" class="form-control" name="curp" id="curp" value="{{empleados.0[0]}}" disabled pattern="([A-Z]{4,})+([0-9]{6,})+([A-Z]{6,})+([0-9]{2,})">
+        </div>
+        <div class="form-group col-md-9">
+            <label for="nombre">AP. Paterno    Ap.Materno    Nombre(s)</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" value="{{empleados.0[2]}}" disabled>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <label for="domicilio">Domicilio</label>
+            <input type="text" class="form-control" name="domicilio" id="domicilio" value="{{empleados.0[3]}}" disabled>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="rfc">RFC</label>
+            <input  minlength="13" maxlength="13" type="text" class="form-control" name="rfc" id="rfc" placeholder="0101010101" value="{{empleados.0[1]}}" disabled pattern="([A-Z]{4,})+([0-9]{6,})+([A-Z0-9]{3,})">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="telefono">Telefono</label>
+        <input minlength="10" maxlength="10" type="text" class="form-control" name="telefono" id="telefono" value="{{empleados.0[4]}}" placeholder="000000.00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="correoe">Correo Electronico</label>
+            <input type="email" class="form-control" name="correoe" id="correoe" value="{{empleados.0[5]}}" disabled>
+        </div>
+
+        <div class="form-group col-md-1">
+            <label for="edad">Edad</label>
+        <input type="text" class="form-control" name="edad" id="edad" value="{{empleados.0[7]}}" placeholder="00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-1">
+            <label for="nss">N.S.S</label>
+            <input type="text" class="form-control" name="nss" id="nss" value="{{empleados.0[8]}}" placeholder="000000.00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo" class="form-control" disabled>
+                {% if empleados.0[6] == "M" %}
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                {% else %}
+                   <option value="F">Femenino</option>
+                   <option value="M">Masculino</option>
+                {% endif %}
+
+
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="edociv">E. Civil</label>
+            <select name="edociv" id="edociv" class="form-control" disabled>
+              {% if empleados.0[9]==1 %}
+                <option value="1">Soltero/a</option>
+                <option value="2">Casado/a</option>
+                <option value="3">Union Libre</option>
+                <option value="4">Divorcio</option>
+              {% else %}
+                {% if empleados.0[9]==2 %}
+                  <option value="2">Casado/a</option>
+                  <option value="1">Soltero/a</option>
+                  <option value="3">Union Libre</option>
+                  <option value="4">Divorcio</option>
+                {% else %}
+                  {% if empleados.0[9]==3 %}
+                    <option value="3">Union Libre</option>
+                    <option value="1">Soltero/a</option>
+                    <option value="2">Casado/a</option>
+                    <option value="4">Divorcio</option>
+                  {% else %}
+                  <option value="4">Divorcio</option>
+                  <option value="1">Soltero/a</option>
+                  <option value="2">Casado/a</option>
+                  <option value="3">Union Libre/</option>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+
+          </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+            <div class="form-group col-md-9">
+                    <label for="nomcoy">Conyugue_concubino(nombre de esposa)</label>
+                <input type="text" class="form-control" name="nomcoy" id="nomcoy" value="{{empleados.0[10]}}" disabled>
+            </div>
+
+
+            <div class="form-group col-md-9">
+                <label for="nomcaux">Nombre de contacto</label>
+                <input type="text" class="form-control" name="nomcaux" id="nomcaux" value="{{empleados.0[12]}}" disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="telaux">Telefono de contacto</label>
+            <input type="text" class="form-control" name="telaux" id="telaux" value="{{empleados.0[11]}}" disabled>
+            </div>
+
+
+        <div class="form-group col-md-4">
+                <label for="numinfonavit">Numero de infonavit</label>
+                <input type="text" class="form-control" name="numinfonavit" id="numinfonavit"  value="{{empleados.0[13]}}" disabled>
+        </div>
+    </div>
+    </form>
+    {% for empleado in empleados %}
+      <a href="/ed_empleado/{{ empleado.0 }}" class="btn btn-success" style="background:lightseagreen;">Editar Perfil</a></center>
+      
+    </td>
+  </tr>
+  {% endfor %}
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>
+  <form action="/editar_contrato/{{datoscontrato.0[0]}}" method="POST">   
+    <div class=form-row>
+        <input minlength="18" maxlength="18" type="text" class="form-control" name="curp" id="curp" value="{{empleados.0[0]}}" hidden>
+        <div class="form-group col-md-2">
+          <label for="estatus">Estatus de contrato</label>
+          <select name="estatus" id="estatus" class="form-control">
+              <option value="{{ datoscontrato.0[16] }}" selected>{{ datoscontrato.0[17] }}</option>
+                  {%
+                      for estatus in estatus
+                  %}
+                      <option value="{{ estatus.0 }}">{{ estatus.1 }}</option>
+                  {%   endfor %}
+          </select> 
+        </div>
+        <div class="form-group col-md-2">
+          <label for="tipcon">Tipo de contrato</label>
+            <select name="tipcon" id="tipcon" class="form-control">
+                <option value="{{ datoscontrato.0[18] }}" selected>{{ datoscontrato.0[19] }}</option>
+                    {%
+                        for tipcon in tipocontrato
+                    %}
+                        <option value="{{ tipcon.0 }}">{{ tipcon.1 }}</option>
+                    {%   endfor %}
+            </select> 
+        </div> 
+      </div>
+      <div class=form-row>
+        <div class="form-group col-md-4">
+            <label for="idpuesto">Puesto</label>
+            <select name="idpuesto" id="idpuesto" class="form-control">
+                 <option value="{{datoscontrato.0[2]}}" selected>{{datoscontrato.0[3]}}</option>
+                    {%
+                         for puesto in puestos
+                    %}
+                        <option value="{{ puesto.0 }}">{{ puesto.1 }}</option>
+                    {%   endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="salario">Salario Mensual</label>
+            <input type="number" class="form-control" name="salario" id="salario"  value="{{datoscontrato.0[6]}}" required >
+        </div>
+        <div class="form-group col-md-3">
+            <label for="salario">ㅤ</label>
+            <input type="text" class="form-control" name="sall" id="sall" placeholder="LETRA" value="{{datoscontrato.0[15]}}"  required> 
+        </div>
+    </div>
+    <div class=form-row>
+        <div class="form-group col-md-4">
+            <label for="id_area">Área</label>
+             
+            <select name="id_area" id="id_area" class="form-control">
+                <option value="{{datoscontrato.0[4]}}" selected>{{datoscontrato.0[5]}}</option>
+                    {%
+                        for area in areas
+                    %}
+                        <option value="{{ area.0 }}">{{ area.1 }}</option>
+                    {%   endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group col-md-2">
+          <label for="diapaga">Dias de paga</label>
+          <input type="text" class="form-control" name="diapaga" id="diapaga" value="{{datoscontrato.0[7]}}" required>
+        </div>
+
+
+        
+         
+    </div>
+
+   <div class=form-row>
+        <div class="form-group col-md-2">
+            <label for="fecha_inicio">Fecha de inicio</label>
+            <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" value="{{datoscontrato.0[8]}}">
+            </input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="fecha_fin">Fecha de conclusión</label>
+            <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" value="{{datoscontrato.0[9]}}">
+            </input>
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="jornada">Jornada</label>
+            <select class="form-control" id="country" name="country" required>
+                <option selected>Chosse...</option>
+                {% for row in jornada %}
+                <option value="{{row.IdJornada}}">{{row.jornombre}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+                <label for="hsemana">Horas a la semana</label>
+                <select class="form-control" id="state" name="state" required></select>
+            
+        </div>
+        <div class="form-group col-md-2">
+            <label for="dias">Horario</label>
+            <input type="text" class="form-control" name="dias" id="dias" value="{{datoscontrato.0[14]}}" required>
+
+            
+        </div>
+
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" style="background-color:lightseagreen!important"><font color="white">Guardar cambios &nbsp;<i class="fas fa-paper-plane"></i></font></button>  
+</form>
+<br>
+<a href="/contrato" class="btn btn-success" style="background:lightseagreen;">Regresar</a></center>
+<script>
+    country_select = document.getElementById('country');
+    state_select = document.getElementById('state');
+    
+    
+    country_select.onchange = function(){
+        country = country_select.value;
+        
+        fetch('state/' + country).then(function(response){
+        response.json().then(function(data) {
+        optionHTML = '';
+        for (state of data.statecountry) {
+            optionHTML += '<option value="' + state.iddesc +'">' + state.name + '</option>'
+        }
+        state_select.innerHTML = optionHTML;
+        });
+        });
+    }
+        //CONVERTIR NUMEROS A LETRAS
+        document.getElementById("salario").addEventListener("keyup",function(e){
+    document.getElementById('sall').value= salarioALetras(this.value);
+    });
+     
+     
+    function Unidades(num){
+     
+      switch(num)
+      {
+        case 1: return "UN";
+        case 2: return "DOS";
+        case 3: return "TRES";
+        case 4: return "CUATRO";
+        case 5: return "CINCO";
+        case 6: return "SEIS";
+        case 7: return "SIETE";
+        case 8: return "OCHO";
+        case 9: return "NUEVE";
+      }
+     
+      return "";
+    }
+     
+    function Decenas(num){
+     
+      decena = Math.floor(num/10);
+      unidad = num - (decena * 10);
+     
+      switch(decena)
+      {
+        case 1:
+          switch(unidad)
+          {
+            case 0: return "DIEZ";
+            case 1: return "ONCE";
+            case 2: return "DOCE";
+            case 3: return "TRECE";
+            case 4: return "CATORCE";
+            case 5: return "QUINCE";
+            default: return "DIECI" + Unidades(unidad);
+          }
+        case 2:
+          switch(unidad)
+          {
+            case 0: return "VEINTE";
+            default: return "VEINTI" + Unidades(unidad);
+          }
+        case 3: return DecenasY("TREINTA", unidad);
+        case 4: return DecenasY("CUARENTA", unidad);
+        case 5: return DecenasY("CINCUENTA", unidad);
+        case 6: return DecenasY("SESENTA", unidad);
+        case 7: return DecenasY("SETENTA", unidad);
+        case 8: return DecenasY("OCHENTA", unidad);
+        case 9: return DecenasY("NOVENTA", unidad);
+        case 0: return Unidades(unidad);
+      }
+    }//Unidades()
+     
+    function DecenasY(strSin, numUnidades){
+      if (numUnidades > 0)
+        return strSin + " Y " + Unidades(numUnidades)
+     
+      return strSin;
+    }//DecenasY()
+     
+    function Centenas(num){
+     
+      centenas = Math.floor(num / 100);
+      decenas = num - (centenas * 100);
+     
+      switch(centenas)
+      {
+        case 1:
+          if (decenas > 0)
+            return "CIENTO " + Decenas(decenas);
+          return "CIEN";
+        case 2: return "DOSCIENTOS " + Decenas(decenas);
+        case 3: return "TRESCIENTOS " + Decenas(decenas);
+        case 4: return "CUATROCIENTOS " + Decenas(decenas);
+        case 5: return "QUINIENTOS " + Decenas(decenas);
+        case 6: return "SEISCIENTOS " + Decenas(decenas);
+        case 7: return "SETECIENTOS " + Decenas(decenas);
+        case 8: return "OCHOCIENTOS " + Decenas(decenas);
+        case 9: return "NOVECIENTOS " + Decenas(decenas);
+      }
+     
+      return Decenas(decenas);
+    }//Centenas()
+     
+    function Seccion(num, divisor, strSingular, strPlural){
+      cientos = Math.floor(num / divisor)
+      resto = num - (cientos * divisor)
+     
+      letras = "";
+     
+      if (cientos > 0)
+        if (cientos > 1)
+          letras = Centenas(cientos) + " " + strPlural;
+        else
+          letras = strSingular;
+     
+      if (resto > 0)
+        letras += "";
+     
+      return letras;
+    }//Seccion()
+     
+    function Miles(num){
+      divisor = 1000;
+      cientos = Math.floor(num / divisor)
+      resto = num - (cientos * divisor)
+     
+      strMiles = Seccion(num, divisor, "MIL", "MIL");
+      strCentenas = Centenas(resto);
+     
+      if(strMiles == "")
+        return strCentenas;
+     
+      return strMiles + " " + strCentenas;
+     
+      //return Seccion(num, divisor, "UN MIL", "MIL") + " " + Centenas(resto);
+    }//Miles()
+     
+    function Millones(num){
+      divisor = 1000000;
+      cientos = Math.floor(num / divisor)
+      resto = num - (cientos * divisor)
+     
+      strMillones = Seccion(num, divisor, "UN MILLON", "MILLONES");
+      strMiles = Miles(resto);
+     
+      if(strMillones == "")
+        return strMiles;
+     
+      return strMillones + " " + strMiles;
+     
+      //return Seccion(num, divisor, "UN MILLON", "MILLONES") + " " + Miles(resto);
+    }//Millones()
+     
+    function salarioALetras(num,centavos){
+      var data = {
+        salario: num,
+        enteros: Math.floor(num),
+        centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
+        letrasCentavos: "",
+      };
+      if(centavos == undefined || centavos==false) {
+        data.letrasMonedaPlural="PESOS";
+        data.letrasMonedaSingular="PESO";
+      }else{
+        data.letrasMonedaPlural="CENTAVOS";
+        data.letrasMonedaSingular="CENTAVO";
+      }
+     
+      if (data.centavos > 0)
+        data.letrasCentavos = "CON " + salarioALetras(data.centavos,true);
+     
+      if(data.enteros == 0)
+        return "CERO " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+      if (data.enteros == 1)
+        return Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
+      else
+        return Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+    }//salarioALetras()
+    </script>
+
+</body>
+{% endblock %}

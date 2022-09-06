@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<body style="background-color: #ffff;">
+<br>
+<form action="/modifica_candidato/{{candidatos.0[0]}}" method="post">
+<h2>Editar Candidato</h2>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="curp">CURP</label>
+        <input type="text" class="form-control" name="curp" id="curp" value="{{candidatos.0[0]}}" disabled>
+        </div>
+        <div class="form-group col-md-9">
+            <label for="nombre">AP. Paterno    Ap.Materno    Nombre(s)</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" value="{{candidatos.0[2]}}" disabled>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <label for="domicilio">Domicilio</label>
+            <input type="text" class="form-control" name="domicilio" id="domicilio" value="{{candidatos.0[3]}}" disabled>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="rfc">RFC</label>
+            <input type="text" class="form-control" name="rfc" id="rfc" placeholder="0101010101" value="{{candidatos.0[1]}}" disabled>
+        </div>
+        <div class="form-group col-md-7">
+          <label for="nacionalidad">Nacionalidad</label>
+          <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" value="{{candidatos.0[10]}}" disabled>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="telefono">Teléfono</label>
+        <input type="text" class="form-control" name="telefono" id="telefono" value="{{candidatos.0[4]}}" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="correoe">Correo Electrónico</label>
+            <input type="email" class="form-control" name="correoe" id="correoe" value="{{candidatos.0[5]}}" disabled>
+        </div>
+
+        <div class="form-group col-md-1">
+            <label for="edad">Edad</label>
+        <input type="text" class="form-control" name="edad" id="edad" value="{{candidatos.0[7]}}" disabled>
+        </div>
+        <div class="form-group col-md-1">
+            <label for="nss">N.S.S</label>
+            <input type="text" class="form-control" name="nss" id="nss" value="{{candidatos.0[8]}}" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo" class="form-control" disabled>
+                {% if candidatos.0[6]== "M" %}
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                {% else %}
+                   <option value="F">Femenino</option>
+                   <option value="M">Masculino</option>
+                {% endif %}
+
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="edociv">E. Civil</label>
+            <select name="edociv" id="edociv" class="form-control" disabled>
+                <option selected>{{candidatos.0[11]}}</option>
+            </select>
+        </div>
+    </div>
+</form>
+<br>
+
+<!-- -----------------------------------------------------------------  -->
+<br>
+<br>
+<style>
+  .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9en;
+      min-width: 600px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+      background-color: #333769;
+      color: #ffff;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+      padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+      border-bottom: 1px solid #dddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #333769;
+  }
+  
+  .content-table tbody tr.active-row {
+      font-weight: bold;
+      color: #333769;
+  }
+</style>
+
+<center>
+  <h3>Habilidades asociadas</h3>
+</center>
+<center>
+  <table class="content-table">
+</center>
+<thead>
+  <tr>
+    <th>Habilidad</th>
+    <th>Experiencia</th>
+  </tr>
+</thead>
+<tbody>
+  {% for can_hab in can_habs %}
+  <tr>
+    <td>
+      {{ can_hab.2 }}
+    </td>
+    <td>
+      {{ can_hab.5 }}
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+<!-- -----------------------------------------------------------------  -->
+<br>
+<center>
+  <h3>Requerimientos de Idioma</h3>
+</center>
+<center>
+  <table class="content-table">
+</center>
+<thead>
+  <tr>
+    <th>Idioma</th>
+    <th>Nivel</th>
+  </tr>
+</thead>
+<tbody>
+{% for can_idi in can_idis %}
+  <tr>
+    <td>
+      {{ can_idi.2 }}
+    </td>
+    <td>
+      {{ can_idi.5 }}
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<br>
+<center>
+  <h3>Requerimientos de Nivel Académico</h3>
+</center>
+<center>
+  <table class="content-table">
+</center>
+<thead>
+  <tr>
+    <th>Nivel Académico</th>
+    <th>Carrera</th>
+    <th>Institución</th>
+</tr>
+</thead>
+<tbody>
+  {% for can_aca in can_acas %}
+    <tr>
+      <td>
+        {{ can_aca.2 }}
+      </td>
+      <td>
+        {{ can_aca.4 }}
+      </td>
+        <td>
+        {{ can_aca.8 }}
+      </td>
+
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+<br><br>
+<center>
+  <a class="btn btn-primary" href="/sel_candidato/{{solicitud}}" align="right">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+  </center>
+<br><br>
+
+</body>
+{% endblock %}

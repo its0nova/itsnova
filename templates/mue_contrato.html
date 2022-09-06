@@ -1,0 +1,448 @@
+
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html charset="UTF-8"; charset=windows-1252">
+  <title>HOME-INT</title>
+</head>
+
+<style>
+    *{
+      margin: 0px;
+      padding: 0px;
+  }
+  body {
+      background-color: white;
+      font-family: Calibri, Times New Roman, Arial;
+  }
+  div#body{
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 960px;
+      height: 3450px;
+      background-color: white;
+  }
+
+  p {
+      white-space: inherit;
+  }
+
+
+
+</style>
+
+<body>
+  <input type="text" id="curp" value="{{empleados.0[0]}}" placeholder="" hidden>
+  <input type="text" id="edad" value="{{empleados.0[8]}}" placeholder="" hidden>
+  <div id="body" >
+    <br>
+    <h3 align="center">
+      <a name="_gjdgxs"></a>
+      <strong>CONTRATO INDIVIDUAL DE TRABAJO</strong>
+    </h3>
+  </br>
+    <br>
+    <p align="left">
+       &nbsp;&nbsp;&nbsp;QUE CELEBRAN, POR UNA PARTE <font color="red"><strong><u> {{empresa.0[1]}} </u></strong></font>, REPRESENTADA EN ESTE
+       ACTO POR EL C. <font color="red"><strong><u> {{empresa.0[8]}} </u></strong></font>, A QUIEN EN LO SUCESIVO SE LE
+       &nbsp;&nbsp;&nbsp;DENOMINARÁ “EL PATRÓN” Y POR OTRA PARTE EL (LA) C.    <font color="red"><strong><u> {{empleados.0[2]}} </u></strong></font>, A QUIEN SE LE DENOMINARÁ “EL TRABAJADOR (A)” AL
+       TENOR DE LAS SIGUIENTES:
+    
+  </br>
+    
+    <p align="center">
+      <strong>DECLARACIONES</strong>
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;I. - DECLARA "EL PATRÓN ”:
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Ser una persona <font color="red">
+      <strong><u> {{empresa.0[7]}} </u></strong></font>, con personalidad jurídica y patrimonio propios, 
+      legalmente constituida de conformidad con Leyes Mexicanas, como consta en 
+      <font color="red"><strong><u> {{empresa.0[10]}} </u></strong></font>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Estar legalmente representada por el C. 
+      <font color="red"><strong><u> {{empresa.0[18]}} </u></strong></font>, de
+      conformidad con la Escritura Pública número  
+      <font color="red"><strong><u> {{empresa.0[11]}} </font> </u>   </strong>  
+      <strong><u>({{empresa.0[17]}}),</u></strong> del libro    
+      <font color="red"><strong><u> {{empresa.0[12]}}</u></strong></font>; de fecha 
+      <font color="red"><strong><u> {{empresa.0[13]}} </u></strong></font>, otorgada
+      ante la fé del licenciado 
+      <font color="red"><strong><u> {{empresa.0[14]}} </u></strong></font>, titular de la notaría pública número 
+      <font color="red"><strong><u>{{empresa.0[15]}}</u></strong></font> de la ciudad de <strong><u>{{empresa.0[16]}}</u></strong>; mismas que a la fecha no le han sido revocadas ni limitadas.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Que tiene su domicilio fiscal para oír 
+      y recibir notificaciones y como fuente de trabajo, el ubicado en <font color="red"><strong><u> {{empresa.0[4]}} </u></strong></font>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Que requiere de los servicios del trabajador, 
+      que se desempeñe principalmente en el área <strong><u> {{contrato.0[6]}}</u></strong>. Celebrándose este contrato por tiempo determinado y en cumplimiento a lo establecido por 
+      el Artículo 35 de la Ley Federal del Trabajo, a partir del <u><strong> {{contrato.0[8]}}</u></strong> 
+      y hasta el día de del <u><strong>{{contrato.0[9]}}</u></strong>. 
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e) Tener la capacidad económica para contratar trabajos
+      y contar con elementos propios suficientes para cumplir las obligaciones que deriven 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; de las relaciones con sus trabajadores.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;II. - DECLARA "EL TRABAJADOR”: 
+    </p>
+    <br>
+    <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Llamarse: <strong><u> {{empleados.0[2]}} </u></strong>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Con fecha de nacimiento el <u><strong><span id="texto"></span> </u></strong> y con una 
+      edad de <strong><u>{{empleados.0[8]}}</u></strong> años a la fecha de firma de este contrato.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Ser de nacionalidad: <u> <strong>{{empleados.0[3]}}</strong> </u>. 
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Con domicilio en: <strong><u> {{empleados.0[4]}} </u></strong>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e) CURP: <u> <strong> {{empleados.0[0]}} </strong>  </u>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f) RFC: <u> <strong> {{empleados.0[1]}} </strong>  </u>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g) Estado civil: <u> <strong> {{empleados.0[11]}} </strong> </u>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h) Teléfono: <strong><u> {{empleados.0[5]}} </u></strong>.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i) Estar enterado del puesto, horario de labores, 
+      salario, prestaciones y funciones a laborar en esta empresa, previa plática con EL PATRÓN. 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No tener otro empleo, ni padecer enfermedad o 
+      incapacidad, por lo que refiere aceptar el trabajo y obligarse a lo pactado y declarado en
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;este contrato.
+    </p>
+    <br>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j) Estar enterado de que la Empresa necesita de sus
+      servicios por el tiempo señalado a partir del día que se menciona en el presente contrato. 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y quecuenta con la capacidad y aptitudes para desarrollar
+      las labores necesarias para dar cumplimiento al objeto de la empresa; no teniendo 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inconveniente en viajar a los lugares que le sean 
+      designados para el cumplimiento de lasfunciones encomendadas. Autorizando expresamente 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;su cambio a la(s) oficina(s) de la empresa donde sea 
+      requerido para prestar el trabajo para el cual se le contrata.
+    </p>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;Las partes, son conformes y han pactado las siguientes:
+    </p></br>
+    
+    <p><br>
+      <center><strong>CLÁUSULAS</strong></center>
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>PRIMERA</strong>
+      . La empresa <strong><u> {{empresa.0[1]}} </u></strong> que, para efectos de la relación laboral,
+      será considerada como exclusiva y única responsable de la &nbsp;&nbsp;&nbsp;relación de trabajo 
+      con EL TRABAJADOR, contrata al trabajador    <strong><u> {{empleados.0[2]}} </u></strong>, 
+      por tiempo indeterminado de conformidad con el artículo 39 &nbsp;&nbsp;&nbsp;- A de la Ley Federal del Trabajo; 
+      el cual empezará a regir a partir del día de su suscripción y firma.
+    </p></br>
+    
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;
+      Las partes celebran el presente contrato individual de trabajo por tiempo
+      indeterminado, el cual se regirá por la Ley Federal del Trabajo, y las
+      &nbsp;&nbsp;&nbsp;disposiciones laborales internas, en todo aquello que 
+      no se encuentre expresamente previsto.
+    </p></br>
+    
+    
+    <p><br>
+    
+      &nbsp;&nbsp;&nbsp;<strong>SEGUNDA</strong>
+      . El trabajador, se le asigna el puesto de <strong><u> {{contrato.0[3]}} </u></strong>, 
+      el cual ocupará durante la vigencia de éste contrato, salvo que exista por
+      &nbsp;&nbsp;&nbsp;escrito y con firma DEL PATRÓN o su representante, modificación de la
+      misma, cualquier pacto o modificación legal no tiene efecto legal alguno.
+    </p></br>
+    
+    
+    <p><br>
+    
+      &nbsp;&nbsp;&nbsp;<strong>TERCERA</strong>
+      . Que dentro de las funciones a desarrollar por el trabajador se
+      encuentran: <strong><u>{{contrato.0[4]}} 
+      </u></strong>y demás actividades requeridas por sus superiores jerárquicos.
+    </p></br>
+    
+    
+    <p><br>
+    
+      &nbsp;&nbsp;&nbsp;<strong>CUARTA. </strong>
+      El lugar de la prestación de los servicios de “EL TRABAJADOR” será en el domicilio de “LA EMPRESA”. 
+      En el cual se le proveerá de todo el &nbsp;&nbsp;&nbsp;material necesario para el desarrollo y 
+      funcionalidad en el desempeño de sus actividades laborales; de la misma forma “EL TRABAJADOR”, es 
+      &nbsp;&nbsp;&nbsp;responsable del uso inadecuado del equipo que se le asigne y que ocupe conjuntamente
+      para el desarrollo de sus actividades como: &nbsp;&nbsp;&nbsp;COMPUTADORAS, TELÉFONOS, FAX,
+      CALCULADORAS, IMPRESORAS, SMARTPHONES, PAPELERÍA, MOBILIARIO, ETC; que por
+      este motivo resulte &nbsp;&nbsp;&nbsp;dañado por acciones deliberadas o inconscientes y que
+      afecten a “LA EMPRESA”.
+    </p></br>
+    
+    
+    <p>
+    
+      &nbsp;&nbsp;&nbsp;<strong>QUINTA.</strong>
+      El trabajador se obliga a realizar un trabajo personal y subordinado a “EL PATRÓN”, en el puesto indicado, 
+      el cual desarrollará con la &nbsp;&nbsp;&nbsp;intensidad, cuidado y esmero apropiados, en la forma, tiempo, 
+      horario y lugar convenidos o en cualquier otro que se le asigne por las necesidades &nbsp;&nbsp;&nbsp;del servicio.
+    </p>
+    <br>    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      EL TRABAJADOR realizará su trabajo en una jornada <strong><u> {{contrato.0 [12]}} </u></strong>
+      ,cubriendo <strong><u> {{contrato.0[11]}}  </u></strong>horas semanales, obligándose a
+      cumplirla y &nbsp;&nbsp;&nbsp;que para tal efecto el horario de labores de <strong><u>{{contrato.0 [15]}}</u></strong>.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      Aceptando el trabajador cumplir con los controles documentados de asistencia, de entrada y salida de labores, 
+      así como tiempo para tomar sus &nbsp;&nbsp;&nbsp;alimentos; debiendo acatar las disposiciones que para tal 
+      efecto emita la dirección general y/o el área de recursos humanos.
+    </p>
+    <br>
+    <p> 
+      &nbsp;&nbsp;&nbsp;
+      En términos del artículo 59 de “LA LEY”, para que “EL TRABAJADOR” disfrute de un descanso semanal mayor al 
+      comúnmente establecido, puede &nbsp;&nbsp;&nbsp;ampliarse el horario diario de labores, a efecto de acomodar
+      sus horas de trabajo y pueda gozar como días de descanso el día sábado, el cual no es &nbsp;&nbsp;&nbsp;obligatorio.
+      Lo anterior siempre y cuando cumpla con las horas laborales que se
+      establecen semanalmente en el presente contrato.
+    </p><br>
+    
+    
+    </br><p>
+      &nbsp;&nbsp;&nbsp;<strong>SEXTA.</strong>
+      Le queda prohibido al trabajador, laborar jornada extra, salvo que exista autorización DEL PATRÓN y/o 
+      representante legal y/o Director &nbsp;&nbsp;&nbsp;General, por escrito, donde se indique el motivo y horas 
+      extras autorizadas a laborar, firmando ambas partes de conformidad y conservando el &nbsp;&nbsp;&nbsp;trabajador
+      copia de tal autorización, no tendrá validez legal cualquier pacto verbal o reclamación sin tal autorización y 
+      aceptación DEL PATRÓN. El &nbsp;&nbsp;&nbsp;mismo supuesto aplica en caso de la prima dominical, por laborar en su día de descanso.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      El trabajador, disfrutará de los días festivos obligatorios que menciona el artículo 74 de la Ley, con goce de
+      sueldo y no podrá laborarlos salvo que &nbsp;&nbsp;&nbsp;así lo pacte con EL PATRÓN por escrito y firmado por
+      las partes, recibiendo el pago de salario doble si convino por escrito en laborarlo. El 
+      &nbsp;&nbsp;&nbsp;trabajador, cuando labore en su día de descanso (pactándose el domingo), le será pagado una 
+      prima dominical a razón de un 25% de su sueldo &nbsp;&nbsp;&nbsp;diario.
+    </p><br></br>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;<strong>SÉPTIMA.</strong>
+      Así mismo “LAS PARTES” convienen y acepta “EL TRABAJADOR” que cuando por
+      razones administrativas o de desarrollo de la actividad o &nbsp;&nbsp;&nbsp;prestación de
+      servicios contratados haya necesidad de removerlo, podrá trasladarse al
+      lugar que “LA EMPRESA” le asigne.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;
+      En el caso anterior “LA EMPRESA” le comunicará con anticipación la remoción
+      del lugar de prestación de servicios indicándole el nuevo asignado. &nbsp;&nbsp;&nbsp;Para el
+      caso que en el nuevo lugar de prestación de servicios que le fuera asignado
+      variara el horario de labores, “EL TRABAJADOR” acepta &nbsp;&nbsp;&nbsp;allanarse a dicha
+      modalidad.
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>OCTAVA.</strong>
+      La partes pactan, que en caso que en la empresa se implanten controles de
+      asistencia y/o horario, el trabajador registrará su asistencia &nbsp;&nbsp;&nbsp;en la lista
+      correspondiente, obligándose el trabajador a firmar las listas diariamente,
+      en caso de que el trabajador se presente y no registre su &nbsp;&nbsp;&nbsp;asistencia y
+      horario en las listas correspondientes, dicho día se considerará como falta
+      injustificada, toda inasistencia injustificada a sus labores &nbsp;&nbsp;&nbsp;será reportada
+      al jefe inmediato del trabajado, y se procederá a su descuento salarial por
+      inasistencia injustificada al trabajo, así se asentará tal &nbsp;&nbsp;&nbsp;concepto en el
+      recibo de percepciones y se descontará el día no laborado, y convienen que
+      el recibo de sueldo servirá de base para el computo &nbsp;&nbsp;&nbsp;legal, de faltas
+      injustificadas y en su caso para probar la legal rescisión de la relación
+      laboral conforme a la fracción X del artículo 47 de la Ley.
+    </p><br></br>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;<strong>NOVENA.</strong>
+      “EL TRABAJADOR” percibirá por la prestación de sus servicios como salario
+      mensual la cantidad de <strong><u>$ {{contrato.0[13]}}({{contrato.0[17]}} PESOS MEXICANOS)</u></strong>
+     . El cuál será cubierto en efectivo y en moneda nacional del curso corriente o a través de depósito 
+      bancario &nbsp;&nbsp;&nbsp;en cuenta de nómina, o por
+      medio de transferencia bancaria a sus cuentas personales de nómina. Del
+      salario anterior “LA EMPRESA” hará por &nbsp;&nbsp;&nbsp;cuenta de “EL TRABAJADOR” las
+      deducciones legales correspondientes particularmente las que se refieren a
+      leyes tributarias y de seguridad social &nbsp;&nbsp;&nbsp;correspondientes. Dicho monto que
+      incluye el pago de séptimos días y descansos obligatorios.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      “EL TRABAJADOR” deberá cada vez que le sea pagado su salario extender a
+      favor de “LA EMPRESA” el recibo correspondiente en los documentos 
+      &nbsp;&nbsp;&nbsp;que la misma le presente para tales fines.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      En caso de pago en efectivo, “EL TRABAJADOR” recibirá el pago de su salario
+      en el domicilio del lugar de la prestación de sus servicios los días 
+      &nbsp;&nbsp;&nbsp;<strong><u> {{contrato.0[7]}} </u> </strong>.
+    </p>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>DÉCIMA. </strong>
+      El trabajador, recibirá el pago y disfrute de las siguientes prestaciones:
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      a) El pago de las partes proporcionales que le corresponda tanto por el
+      tiempo laborado, así como de las prestaciones mínimas de ley.
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>DÉCIMA PRIMERA.</strong>
+      El trabajador, acepta obligarse a laborar con esmero, probidad, y cuidado,
+      empleando su muda de trabajo y herramientas &nbsp;&nbsp;&nbsp;necesarias 
+      para cumplir con su trabajo, acorde a su categoría. Así mismo lo pactado 
+      en este contrato no podrá ser modificado, salvo el aumento &nbsp;&nbsp;&nbsp;salarial que pueda 
+      otorgarse en términos de ley, por lo que cualquier renovación deberá ser por escrito y
+      firmado por ambas partes, conservando &nbsp;&nbsp;&nbsp;copia cada una de ellas para
+      cualquier aclaración o petición, caso contrario es ilegal cualquier
+      renovación a las condiciones de trabajo y &nbsp;&nbsp;&nbsp;prestaciones enunciadas.
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>DÉCIMA SEGUNDA.</strong>
+      “EL TRABAJADOR” acepta someterse a los exámenes médicos que periódicamente
+      establezca “EL PATRÓN” en los términos del &nbsp;&nbsp;&nbsp;artículo 134 Fracción X de “LA
+      LEY”, a fin de mantener en forma óptima sus facultades físicas e
+      intelectuales, para el mejor desempeño de sus &nbsp;&nbsp;&nbsp;funciones. El médico que
+      practique los reconocimientos será designado y retribuido por “EL PATRÓN”.
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>DÉCIMA TERCERA.</strong>
+      “LAS PARTES” estipulan que para el caso de que “EL TRABAJADOR”, en el
+      desempeño de su trabajo actúe con descuido, falta de &nbsp;&nbsp;&nbsp;atención, negligencia,
+      indisciplina, o su conducta se adecue a los supuestos contenidos y
+      contemplados en las fracciones del artículo 47 de la Ley &nbsp;&nbsp;&nbsp;Federal del
+      Trabajo; “EL PATRÓN” podrá optar, previamente a rescindir “EL CONTRATO”,
+      por amonestar a “EL TRABAJADOR”, mediante un acta &nbsp;&nbsp;&nbsp;administrativa suscrita
+      por “LAS PARTES”, y en su caso, testigos de asistencia, en la cual se
+      establezca claramente la falta cometida por “EL &nbsp;&nbsp;&nbsp;TRABAJADOR”. En el
+      entendido de que al acumularse tres amonestaciones en un periodo
+      comprendido de tres meses, quedará rescindido el &nbsp;&nbsp;&nbsp;presente contrato sin
+      responsabilidad para “EL PATRÓN”.
+    </p></br>
+    
+    <p><br>
+      &nbsp;&nbsp;&nbsp;<strong>DÉCIMA CUARTA.</strong>
+      EL TRABAJADOR se obligan al cumplimiento de la Ley Federal del Trabajo, las
+      disposiciones laborales internas, y las órdenes &nbsp;&nbsp;&nbsp;dadas por EL PATRÓN a
+      través de sus representantes y superior jerárquico, en esa virtud, las
+      violaciones al presente contrato o a la ley, que no &nbsp;&nbsp;&nbsp;ameriten rescisión del
+      vínculo laboral, serán sancionadas de uno a ocho días de suspensión sin
+      goce de sueldo, según la gravedad de la falta, &nbsp;&nbsp;&nbsp;previa intervención del
+      afectado.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;
+      Será causal de rescisión de la relación laboral sin responsabilidad para EL
+      PATRÓN, el beneficiarse EL TRABAJADOR, para sí o para terceras &nbsp;&nbsp;&nbsp;personas de
+      su puesto, cargo o comisión, así como de las funciones o actividades a
+      desarrollar, con motivo de su empleo y funciones.
+    </p>
+    
+    <p>
+      &nbsp;&nbsp;
+      En virtud de lo cual ambas partes declaran haber leído este contrato,
+      haciéndose conocedoras de sus obligaciones y derechos expresados en el
+      &nbsp;&nbsp;&nbsp;mismo,
+    </p>
+  
+    <p>
+      &nbsp;&nbsp;&nbsp;
+      EL PRESENTE CONTRATO INDIVIDUAL DE TRABAJO SE FIRMA POR AMBAS PARTES EN LA
+    CIUDAD DE <strong><u>{{empresa.0[16]}}</u></strong>, EL DIA <strong><u>{{contrato.0[16]}}</u></strong>.
+    </p></br>
+  </p>  
+          <div style="width: 100%;">
+             <table style="width:90%;margin-left: auto; margin-right: auto;">
+                <tr>
+                   <td style="width: 40%;text-align: center">EL EMPLEADO</td>
+                   <td style="width:20px;"></td>
+                   <td style="width: 40%;text-align: center">EL PATRÓN</td>
+                    
+                </tr>
+                <tr>
+                   <td style="height: 90px; border-bottom: 1px; border-bottom-style: solid"></td>
+                   <td style="width:20px;"></td>
+                   <td style="border-bottom: 1px; border-bottom-style: solid"></td>                
+                </tr>
+                 <tr>
+                   <td style="width: 40%;text-align: center">Nombre y Firma</td>
+                   <td style="width:20px;"></td>
+                   <td style="width: 40%;text-align: center">Empresa o Persona Física </td>                
+                </tr>
+                 
+             </table>
+              
+          </div>
+  </div>
+  </div>
+  <script >
+    //Sacar el año actual (lo saca en base a la fecha del sevidor/sistema)
+    var f = new Date();
+    var ynow=(f.getFullYear());
+    //Extraer los valores de los inputs
+    curpsel = document.getElementById('curp').value
+    edadsel = document.getElementById('edad').value
+    var regex = /(\d+)/g;//Extraer los numeros de la curp y convertirlos a un array
+    var fecha=curpsel;//Declarar el array en una variable
+
+    var datebir=fecha.match(regex)[0]; //convertir el primer indice del array en cadena string
+    var mes = datebir.slice(2, 4);//dividir el mes de los 6 digitos de la curp
+    var dia = datebir.slice(4, 6);//dividir el dia de los 6 digitos de la curp
+    var year = ynow - edadsel;//restar el año actual con la edad de la persona
+    var completo = dia +" de "+ mes + " del " + year
+
+    document.getElementById("texto").innerHTML=completo;
+    </script>
+  </body>
+</html>

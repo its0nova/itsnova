@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+	<title>Agregar Capacitación </title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<h2> Agregar capacitación </h2>
+<body style="background-color:#ffff;">
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <form action="/modifica_capacitacion/{{Curp}}/{{id}}" method="POST">  
+    <div class="form-group col-md-5">
+       <label for="curso">Curso</label>
+       <select name="curso" id="curso" class="form-control" required>
+            <option value="{{cont.0[1]}}" selected> {{cont.0[2]}} </option>
+            {% 
+                for cur in cursos
+            %}                
+                <option value="{{ cur.0 }}">{{ cur.1 }}</option>
+            {%   endfor %}
+        </select>
+    <br>
+    <div class=form-row> 
+          <div class="form-group col-md-4">
+            <input type="text" class="form-control" name="curp" id="curp" value="{{Curp}}" hidden>
+            <input type="text" class="form-control" name="id" id="id" value="{{id}}" hidden>
+            <label for="fecha_inicio">Fecha de inicio</label>
+            <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="{{cont.0[3]}}" required>
+          </div>
+        <div class="form-group col-md-4">
+            <label for="fecha_fin">Fecha de conclusion</label>
+            <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value={{cont.0[4]}} required>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="estatus">Estatus de capacitación</label>
+            <select name="estatus" id="estatus" class="form-control" required>
+                 {% if cont.0[6]==1 %}
+                 <option value="1">Programado</option>
+                 <option value="2">En curso</option>
+                 <option value="3">Acreditado</option>
+                 <option value="4">No acreditado</option>
+               {% else %}  
+               {% if cont.0[6]==2 %}
+                 <option value="2">En curso</option>  
+                 <option value="1">Programado</option>
+                 <option value="3">Acreditado</option>
+                 <option value="4">No acreditado</option>
+                 {% else %}
+                    {% if cont.0[6]==3 %}
+                    <option value="3">Acreditado</option>
+                    <option value="1">Programado</option>
+                    <option value="2">En curso</option>
+                    <option value="4">No acreditado</option>
+                   {% else %}
+                   <option value="4">No acreditado</option>
+                   <option value="1">Programado</option>
+                   <option value="2">En curso</option>
+                   <option value="3">Acreditado</option>
+                   
+                   {% endif %}
+                 {% endif %}  
+               {% endif %}
+            </select>
+        </div>
+    </div>
+    <div class=form-row>
+        <div class="form-group col-md-8">
+            <label for="capacitador">Capacitador</label>
+        <input type="text" class="form-control" name="capacitador" id="capacitador" value="{{cont.0[5]}}" >
+        </div>
+    </div>
+    <br>
+    <div class=form-row>
+    &nbsp;<button type="submit" class="btn btn-primary">Enviar &nbsp;<i class="fas fa-paper-plane"></i></button>
+    &nbsp;
+    </form>
+<a class="btn btn-primary" href="/capacitacion_contrato/{{Curp}}" align="right">Cancelar &nbsp;<i class="fas fa-ban"></i></a>
+</body>
+{% endblock %}

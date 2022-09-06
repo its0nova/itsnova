@@ -1,0 +1,251 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<body style="background-color:#ffff;">
+<br>
+<h2>Contrato</h2>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="curp">CURP</label>
+        <input minlength="18" maxlength="18" type="text" class="form-control" name="curp" id="curp" value="{{empleados.0[0]}}" disabled pattern="([A-Z]{4,})+([0-9]{6,})+([A-Z]{6,})+([0-9]{2,})">
+        </div>
+        <div class="form-group col-md-9">
+            <label for="nombre">AP. Paterno    Ap.Materno    Nombre(s)</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" value="{{empleados.0[2]}}" disabled>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <label for="domicilio">Domicilio</label>
+            <input type="text" class="form-control" name="domicilio" id="domicilio" value="{{empleados.0[4]}}" disabled>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="rfc">RFC</label>
+            <input  minlength="13" maxlength="13" type="text" class="form-control" name="rfc" id="rfc" placeholder="0101010101" value="{{empleados.0[1]}}" disabled pattern="([A-Z]{4,})+([0-9]{6,})+([A-Z0-9]{3,})">
+        </div>
+        <div class="form-group col-md-7">
+          <label for="nacionalidad">Nacionalidad</label>
+          <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" placeholder="nacionalidad" value="{{empleados.0[3]}}" disabled>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="telefono">Teléfono</label>
+        <input minlength="10" maxlength="10" type="text" class="form-control" name="telefono" id="telefono" value="{{empleados.0[5]}}" placeholder="000000.00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="correoe">Correo Electrónico</label>
+            <input type="email" class="form-control" name="correoe" id="correoe" value="{{empleados.0[6]}}" disabled>
+        </div>
+
+        <div class="form-group col-md-1">
+            <label for="edad">Edad</label>
+        <input type="text" class="form-control" name="edad" id="edad" value="{{empleados.0[8]}}" placeholder="00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-1">
+            <label for="nss">N.S.S</label>
+            <input type="text" class="form-control" name="nss" id="nss" value="{{empleados.0[9]}}" placeholder="000000.00" pattern="[0-9.]+" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo" class="form-control" disabled>
+                {% if empleados.0[7] == "M" %}
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                {% else %}
+                   <option value="F">Femenino</option>
+                   <option value="M">Masculino</option>
+                {% endif %}
+
+
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="edociv">E. Civil</label>
+            <select name="edociv" id="edociv" class="form-control" disabled>
+              {% if empleados.0[10]==1 %}
+                <option value="1">Soltero/a</option>
+                <option value="2">Casado/a</option>
+                <option value="3">Union Libre</option>
+                <option value="4">Divorcio</option>
+              {% else %}
+                {% if empleados.0[10]==2 %}
+                  <option value="2">Casado/a</option>
+                  <option value="1">Soltero/a</option>
+                  <option value="3">Union Libre</option>
+                  <option value="4">Divorcio</option>
+                {% else %}
+                  {% if empleados.0[10]==3 %}
+                    <option value="3">Union Libre</option>
+                    <option value="1">Soltero/a</option>
+                    <option value="2">Casado/a</option>
+                    <option value="4">Divorcio</option>
+                  {% else %}
+                  <option value="4">Divorcio</option>
+                  <option value="1">Soltero/a</option>
+                  <option value="2">Casado/a</option>
+                  <option value="3">Union Libre/</option>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+
+          </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+            <div class="form-group col-md-9">
+                    <label for="nomcoy">Cónyugue_concubino(nombre de esposa)</label>
+                <input type="text" class="form-control" name="nomcoy" id="nomcoy" value="{{empleados.0[11]}}" disabled>
+            </div>
+
+
+            <div class="form-group col-md-9">
+                <label for="nomcaux">Nombre de contacto</label>
+                <input type="text" class="form-control" name="nomcaux" id="nomcaux" value="{{empleados.0[13]}}" disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="telaux">Teléfono de contacto</label>
+            <input type="text" class="form-control" name="telaux" id="telaux" value="{{empleados.0[12]}}" disabled>
+            </div>
+
+
+        <div class="form-group col-md-4">
+                <label for="numinfonavit">Número de infonavit</label>
+                <input type="text" class="form-control" name="numinfonavit" id="numinfonavit"  value="{{empleados.0[14]}}" disabled>
+        </div>
+    </div>
+    </form>
+    {% for empleado in empleados %}
+
+      <a href="/modifica_contrato/{{empleado.0}}/{{datoscontrato.0[0]}}" class="btn btn-primary "onclick="location.href=this.href+'/'+val;return false;">Editar contrato</a></center>
+      <a href="/ed_empleado/{{ empleado.0 }}" class="btn btn-primary">Editar Perfil &nbsp;<i class="far fa-edit"></i></a></center>
+      <a href="/ca_contrato/{{datoscontrato.0[0]}}/{{ empleado.0 }}" class="btn btn-primary" style="background:rgb(235, 29, 29)">Cancelar Contrato &nbsp;<i class="fas fa-ban"></i></a></center>
+      <a href="/firma_contrato/{{datoscontrato.0[0]}}/{{empleado.0}}" class="btn btn-primary">Firmar &nbsp;<i class="fas fa-pen-alt"></i></a></center>
+      <a href="/vercontrato/{{empleado.0}}" class="btn btn-primary">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a></center>
+    </td>
+  </tr>
+  {% endfor %}
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>
+  <form action="">
+          
+    <div class=form-row>
+      <div class="form-group col-md-2">
+        <label for="estatus">Estatus de contrato</label>
+        <input type="text" class="form-control" name="estatus" id="estatus" value="{{datoscontrato.0[17]}}" disabled>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="tipcon">Tipo de contrato</label>
+        <input type="tipcon" class="form-control" name="tipcon" id="tipcon" value="{{datoscontrato.0[18]}}" disabled>
+      </div> 
+    </div>
+
+    <div class=form-row>
+      
+      <div class="form-group col-md-4">
+          <label for="puesto">Puesto</label>
+          <input type="text" class="form-control" name="puesto" id="puesto" placeholder="" value="{{datoscontrato.0[3]}}" disabled >
+      </div>
+    
+      <div class="form-group col-md-2">
+          <label for="salario">Salario Mensual</label>
+          <input type="number" class="form-control" name="salario" id="salario"  value="{{datoscontrato.0[6]}}" disabled>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="salario">ㅤ</label>
+        <input type="text" class="form-control" name="sall" id="sall" placeholder="LETRA" value="{{datoscontrato.0[15]}}"  disabled> 
+      </div>
+    </div>
+    <div class=form-row>
+      <div class="form-group col-md-4">
+        <label for="area">Área</label>
+        <input type="text" class="form-control" name="area" id="area" value="{{datoscontrato.0[5]}}" disabled>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="diapaga">Días de paga</label>
+        <input type="text" class="form-control" name="diapaga" id="diapaga" value="{{datoscontrato.0[7]}}" disabled>
+      </div>
+    </div>
+    <div class=form-row>
+
+      <div class="form-group col-md-2">
+          <label for="fecha_inicio">Fecha de inicio &nbsp;<i class="fas fa-calendar-day"></i></label>
+          <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="{{datoscontrato.0[8]}}" disabled>
+          
+      </div>
+
+      <div class="form-group col-md-2">
+          <label for="fecha_fin">Fecha de conclusión &nbsp;<i class="fas fa-calendar-day"></i></label>
+          <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="{{datoscontrato.0[9]}}" disabled>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="jornada">Jornada</label>
+        <input type="text" class="form-control" name="jornada" id="jornada"  value="{{datoscontrato.0[11]}}" disabled>
+      </div>
+
+        <div class="form-group col-md-2">
+            <label for="hsemana">Horas a la semana</label>
+            <input type="text" class="form-control" name="hsemana" id="hsemana"  value="{{datoscontrato.0[13]}}" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="dias">Horario</label>
+            <input type="text" class="form-control" name="dias" id="dias"value="{{datoscontrato.0[14]}}" disabled>
+        </div>
+    </div>
+  </form>
+
+  <script>
+
+    //Script para comprobar la fecha de firma
+    var f = new Date();
+    var dnow=(f.getDate());
+    var mnow=(f.getMonth()+1);
+    var ynow=(f.getFullYear());
+    //Secciona por año, mes, dia la fecha de inicio
+    fechaini=document.getElementById('fecha_inicio').value;
+    var yini = parseInt(fechaini.slice(0,4));
+    var mini = parseInt(fechaini.slice(5,7));
+    var dini = parseInt(fechaini.slice(8,10));
+
+
+    //Hace la resta de ver cuantos dias faltan para la fecha de inicio
+    if(yini===ynow && mini===mnow && dini===dnow){
+      var vald="1"
+      var valm="1"
+      var valy="1"
+    }else{
+      var vald = dini-dnow;
+      var valm = mini-mnow;
+      var valy = yini-ynow;
+    }
+    //si algun valor es negativo lo convierte a 0
+    if(vald<=0)
+    var vald=0
+    if(valm<=0)
+    var valm=0
+    if(valy<=0)
+    var valy=0
+    //si todos los contadores llegan a 0, se establece un unico 0
+    if(vald===0 && valm===0 && valy===0){
+      var val=0
+    }else{
+      var val= vald+""+valm+""+valy;
+    }
+
+  </script>
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<head>
+    <title>Área</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<body style="background-color:#ffff;">
+<form action="/area_agr" method="post">
+<h1>Área</h1>
+<div class="form-row">
+    <label for="nom_area">Nombre del Área</label>
+</div>
+
+<div class="form-row">
+    <div class="col">
+        <input type="text" class="form-control" name="nom_area" id="nom_area" placeholder="Nombre del área" required>
+    </div>
+</div>
+
+<div class="form-row">
+    <label for="desc">Descripción</label>
+</div>
+<div class="form-row">
+    <div class="col">
+        <input type="text" class="form-control" name="desc" id="desc" placeholder="Descripción" required>
+    </div>
+</div>
+    <br>
+        <button type="submit" class="btn btn-primary">Agregar &nbsp;<i class="fas fa-plus"></i></font></button>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <a class="btn btn-primary" href="/agr_datos_area" align="right">Regresar &nbsp;<i class="fas fa-undo-alt"></i></a>
+    </form>
+</body>
+{% endblock %}

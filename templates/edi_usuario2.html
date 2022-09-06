@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<br>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<form action="/modifica_usuario/{{usuarios.0[0]}}" method="post">
+    <h2>Editar Usuario</h2>
+    <body style="background-color:#D5DBDB;">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="Usuario">Usuario</label>
+                <input type="text" class="form-control" name="Usuario" id="Usuario" value="{{usuarios.0[1]}}" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" value="{{usuarios.0[2]}}" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Nombre">Nombre</label>
+                <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{usuarios.0[3]}}" required>
+            </div>
+        </div>
+</form>
+    <form class="form-inline" action="/agrega_per_usu/{{usuarios.0[0]}}" method="post">
+        <div class="form-group col-md-3">
+            <input type="hidden" name="usu" id="usu" value="{{pers.0[1]}}">
+            <label for="per">Actualizar Perfil</label>
+            <select name="per" id="per" class="form-control" required>
+                <option value="" selected>Choose...</option>
+                {% for per in pers %}
+                    <option value="{{ per.0 }}">{{ per.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" style="background:lightseagreen">Actualizar &nbsp;<i class="fas fa-paper-plane"></i></button>
+    </form>
+
+
+
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+{% endblock %}

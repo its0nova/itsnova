@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+<form action="/modifica_perfil/{{perfiles.0[0]}}" method="post">
+    <h2>Editar Perfil</h2>
+    <body style="background-color:#D5DBDB;">
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <div class="form-row">
+        <label for="descripcion">Descripción del perfil</label>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{perfiles.0[1]}}" required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="background:lightseagreen">Enviar Cambios &nbsp;<i class="fas fa-paper-plane"></i></button>
+    <button type="submit" class="btn btn-primary" href="/perfil" align="right" style="background:lightseagreen">Perfiles &nbsp;<i class="fas fa-user-friends"></i></button>
+</form>
+<!-- -----------------------------------------------------------------  -->
+<br>
+<br>
+<center><h3>Procesos asociados</h3></center>
+<div class="panel panel-primary">
+    <div class="panel-heading" >
+        <form class="form-inline" action="/agrega_proceso_perfil" method="post">
+            <div class="form-row">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="hidden" name="per" id="per" value="{{perfiles.0[0]}}">
+                <label for="proceso">Proceso</label>&nbsp;&nbsp;&nbsp;
+                <select name="proceso" id="proceso" class="form-control" required>
+                    <option value="" selected>Choose...</option>
+                    {%
+                        for proceso in procesos
+                    %}
+                    <option value="{{ proceso.0 }}">{{ proceso.1 }}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;&nbsp;
+                <label for="permiso">Permiso</label>&nbsp;&nbsp;&nbsp;
+                <select name="permiso" id="permiso" class="form-control" required>
+                    <option value="" selected>Choose...</option>
+                    {%
+                        for permiso in permisos
+                    %}
+                    <option value="{{ permiso.0 }}">{{ permiso.1 }}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;&nbsp;
+            </div>&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary" style="background:lightseagreen">Agrega proceso</button>
+        </form>
+    </div>
+    <div class="panel-body">
+        <center>
+            <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                <thead>
+                <tr>
+                    <td color="white" bgcolor="006666"><font color="white">Proceso</font></td>
+                    <td color="white" bgcolor="006666"><font color="white">Permiso</font></td>
+                    <td color="white" bgcolor="006666"></td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for perm_perfil in per_proc %}
+                <tr>
+                    <td>
+                        {{ perm_perfil.2 }}
+                    </td>
+                    <td>
+                        {{ perm_perfil.7 }}
+                    </td>
+                    <td  bgcolor="#9C9C9C" width="60">
+                        <center><a href="/bo_proceso_perfil/{{perm_perfil.0}}/{{perm_perfil.4}}/{{perm_perfil.6}}" class="btn btn-success" style="background:lightseagreen;">Borrar &nbsp;<i class="fas fa-trash-alt"></i></a></center>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+</div>
+
+
+{% endblock %}

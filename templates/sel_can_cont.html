@@ -1,0 +1,154 @@
+{% extends "layout.html" %} {% block content %}
+<script src="https://kit.fontawesome.com/c8a4eef53d.js" crossorigin="anonymous"></script>
+
+<style>
+	.content-table {
+		border-collapse: collapse;
+		margin: 25px 0;
+		font-size: 0.9en;
+		min-width: 600px;
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+		box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+	}
+	
+	.content-table thead tr {
+		background-color: #333769;
+		color: #ffff;
+		text-align: left;
+		font-weight: bold;
+	}
+	
+	.content-table th,
+	.content-table td {
+		padding: 12px 15px;
+	}
+	
+	.content-table tbody tr {
+		border-bottom: 1px solid #dddd;
+	}
+	
+	.content-table tbody tr:nth-of-type(even) {
+		background-color: #f3f3f3;
+	}
+	
+	.content-table tbody tr:last-of-type {
+		border-bottom: 2px solid #333769;
+	}
+	
+	.content-table tbody tr.active-row {
+		font-weight: bold;
+		color: #333769;
+	}
+</style>
+
+<body style="background-color: #ffff;">
+    <center>
+        <h3>Datos de la solicitud</h3>
+    </center>
+    <center>
+        <table class="content-table">
+    </center>
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Área</th>
+            <th>Puesto</th>
+            <th>Vacantes</th>
+            <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {{ sol.1 }}
+            </td>
+            <td>
+                {{ sol.3 }}
+            </td>
+            <td>
+                {{ sol.5 }}
+            </td>
+            <td>
+                {{ sol.6 }}
+            </td>
+            <td>
+                {{ sol.8 }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br><br><br>
+    <center>
+        <h3>Candidatos Seleccionados</h3>
+    </center>
+    <center>
+        <table class="content-table">
+    </center>
+    <thead>
+        <tr>
+            <th>CURP</th>
+            <th>Nombre</th>
+            <th>Nivel Académico</th>
+            <th>Carrera</th>
+            <th>C.Psicológica</th>
+            <th>C.Médica</th>
+            <th>V.Perfil</th>
+            <th>V.Referencias</th>
+            <th>Contratar</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for candidato in can_seleccionados %}
+            <tr>
+                <td>
+                    {{ candidato.0 }}
+                </td>
+                <td>
+                    {{ candidato.1 }}
+                </td>
+                <td>
+                    {{ candidato.4 }}
+                </td>
+                <td>
+                    {{ candidato.5 }}
+                </td>
+                <td>
+                    <center>{{ candidato.9 }}</center>
+                    <a href="/muestra_calf_psicologica/{{ candidato.0 }}/{{ sol.0 }}" class="btn btn-primary">Ver P.S&nbsp;<i class="fas fa-eye"></i></a>
+                </td>
+                <td>
+                    <center>{{ candidato.10 }}</center>
+                </td>
+                <td>
+                    <center>{{ candidato.7 }}</center>
+                    <a href="/mue_per_candidato/{{candidato.0}}" class="btn btn-primary">Ver C.P&nbsp;<i class="fas fa-eye"></i></a>
+                </td>
+                <td>
+                    <center>{{ candidato.11 }}</center>
+                </td>
+                <td>
+                    {{ candidato.8 }}
+                </td>
+                <td bgcolor="#828282" width="60">
+                    <center><a href="/contrata_candidato/{{candidato.6}}/{{candidato.0}}/Si" style="color:#FFFFFF; text-decoration:none;">Si&nbsp;<i class="fas fa-check"></i></a></center>
+                </td>
+                <td bgcolor="#FFF5757" width="60">
+                    <center><a href="/contrata_candidato/{{candidato.6}}/{{candidato.0}}/No" style="color:#FFFFFF; text-decoration:none;">No&nbsp;<i class="fas fa-times"></i></a></center>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <center>
+        <a class="btn btn-primary" href="/agr_candidato_contratacion" align="right">Selección &nbsp;<i class="fas fa-clipboard-check"></i></a>
+    </center>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}

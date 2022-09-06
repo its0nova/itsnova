@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <title>HOME-INT</title>
+</head>
+<body style="background-color:#D5DBDB;">
+<center>
+    <br>
+    <br>
+    <img src="{{url_for('static', filename='error.png')}}"class="mr-3" width="35%" height="35%">
+    <h1>{{ des_error }}</h1><a href= {{ paginaant }}{{ "/" }}{{id}} class="btn btn-success" style="background:lightseagreen;">Reintentar</a></center>
+
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</center>
+</body>
+{% endblock %}
